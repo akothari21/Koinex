@@ -1,0 +1,116 @@
+*{
+    box-sizing: border-box;
+}
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(170, 170, 170, 0.342) !important;
+}
+.navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 1px !important;
+}
+
+.navbar-header {
+    font-size: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.navbar-header .logo{
+    display: inline-block;
+}
+.navbar-header .brand{
+    display: inline-block;
+    height: 30px;
+}
+.margin-left-5 {
+    margin-left: 5px;
+}
+
+
+
+.navHollowBtn {
+    height: 40px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #195bdd !important;
+    border: 1px solid #195bdd;
+    padding-top: 10px !important;
+    position: relative !important;
+    top: -4px;
+    margin-left: 10px;
+    font-family: poppins-regular;
+    letter-spacing: .5px;
+    
+}
+.navbar-nav>a {
+    cursor: pointer;
+    position: relative;
+    display: block;
+    padding: 10px 15px !important;
+    line-height: 20px;
+}
+.navbar-nav{
+    flex-direction: row;
+}
+
+.navFillBtn {
+    height: 40px;
+    border-radius: 4px;
+    background-color: #195bdd;
+    color: #ffffff !important;
+    border: 1px solid #195bdd;
+    padding-top: 10px !important;
+    position: relative !important;
+    top: -4px;
+    margin-left: 10px;
+    font-family: poppins-regular;
+    letter-spacing: .5px;
+    
+}
+
+.loopTextColor {
+    color: #5e6875 !important;
+}
+
+
+
+.icon {
+    display: none;
+  } 
+@media screen and (max-width: 600px) {
+    .resnav>a {
+        display:none;
+    }
+    .resnav.responsive {position: relative;}
+     .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .resnav.responsive a {
+      
+      display: block;
+      
+    }
+    
+    .navbar{
+        display: block;
+    }
+    .navFillBtn{
+        margin-top: 10px;
+    }
+
+  }
+
+  
+  
+  @media screen and (max-width: 600px) {
+    .navbar-nav {display: none;}
+    .icon {
+      display: block;
+      padding: 16px;
+      font-size: 30px;
+    }
+  }

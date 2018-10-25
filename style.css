@@ -51,7 +51,7 @@
     padding: 10px 15px !important;
     line-height: 20px;
 }
-.navbar-nav{
+.navbar-nav {
     flex-direction: row;
 }
 
@@ -79,7 +79,7 @@
 .icon {
     display: none;
   } 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
     .resnav>a {
         display:none;
     }
@@ -101,12 +101,14 @@
     .navFillBtn{
         margin-top: 10px;
     }
-
+   .indivTab label{
+        width: 100px !important;
+    }
   }
 
   
   
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 700px) {
     .navbar-nav {display: none;}
     .icon {
       display: block;
@@ -114,3 +116,60 @@
       font-size: 30px;
     }
   }
+.loopTabs{
+    border: 1px solid rgba(170, 170, 170, 0.342);
+    border-radius: 6px;
+    padding: 5px;
+    margin: 4px;
+
+}
+.indivTab{
+    display: inline-block;
+}
+.indivTab input[type="radio"] {
+    display: none;
+}
+
+.indivTab label {
+    background: #ffffff;
+    width: 138px;
+    height: 40px;
+    font-size: 14px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-right: 2px;
+    margin-bottom: 0px;
+    border-radius: 4px;
+    padding: 14px 20px;
+    color: #465465;
+    cursor: pointer;
+    
+}
+.indivTab input[type="radio"]:checked ~ label {
+    background: #0052cc;
+    margin-bottom: 0;
+    color: #ffffff;
+    cursor: default;
+}
+
+.indivTab :hover {
+    background: rgb(180, 180, 180);
+}
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.font-20 {
+    font-size: 20px;
+    padding: 5px;
+    margin: 4px;
+}

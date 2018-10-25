@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-        <nav class="navbar navbar-default navbar-fixed-top nav-custom justify-content-between">
+    <nav class="navbar navbar-default navbar-fixed-top nav-custom justify-content-between">
             
                <div class="navbar-header">
                     <div class="logo">
@@ -38,7 +38,7 @@
                     </div>
                </div>
               
-        <div class=" resnav navbar-nav navbar-right justify-content-between" id="res">
+        <div class=" navbar-nav navbar-right justify-content-between" id="res">
             
             
               <a class=" nav-item nav-link loopTextColor" href="https://koinex.in" style="padding-bottom:15px;" target="_blank">KOINEX</a>
@@ -48,11 +48,45 @@
         
         </div> 
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
+            <i class="fa fa-bars"></i>
         </a>       
                
-        </nav>
-        
+    </nav>
+    <div class="container-fluid">
+            <div class="row search-header">
+                
+                    <div class="font-20 col-sm-1">
+                    I want to
+                    </div>
+                <div class="loopTabs col-sm-3">
+                    <div class="indivTab">
+                    <input class="indivTab " id="toggle-tab1" name="tabs" type="radio" value="sell">
+                    <label for="toggle-tab1">Buy</label>
+                    </div>
+                    <div class="indivTab">
+                    <input class="indivTab " id="toggle-tab2" name="tabs"  type="radio" value="buy">
+                    <label for="toggle-tab2">Sell</label>
+                    </div>
+                </div>
+                <div class="loopTabs col-sm-6">
+                    <div class="indivTab">
+                    <input class="indivTab" id="toggle-tab3" name="targetCurrency" ng-click="vm.updateQueryParams('targetCurrency','bitcoin');vm.resetFilters()" ng-model="vm.filters.targetCurrency" type="radio" value="bitcoin">
+                    <label for="toggle-tab3">Bitcoin</label>
+                    </div>
+                    <div class="indivTab">
+                    <input class="indivTab" id="toggle-tab4" name="targetCurrency" type="radio" value="ether">
+                    <label for="toggle-tab4">Ether</label>
+                    </div>
+                    <div class="indivTab">
+                    <input class="indivTab" id="toggle-tab5" name="targetCurrency" type="radio" value="ripple">
+                    <label for="toggle-tab5">Ripple</label>
+                    </div>
+                </div>
+                </div>
+            
+                
+    </div>
+    
     
 </body>
 <script>

@@ -12,6 +12,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top nav-custom justify-content-between">
@@ -21,7 +24,7 @@
                         <image src='https://koinex.in/koinloop.png' style='width:30px;height:30px;'></image>
                     </div>
                     <div class='brand margin-left-5' style='height:30px;'>
-                        <a href='/loop' style='color:#195add;letter-spacing:3px;font-size:28px;font-family: 'Montserrat';, sans-serif !important;'>
+                        <a href='/loop' style='color:#195add;letter-spacing:3px;font-size:28px;'>
                         <svg height='27px' version='1.1' viewbox='0 0 94 27' width='94px' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
                         <title>LOOP</title>
                         <desc>Created with Sketch.</desc>
@@ -86,17 +89,118 @@
             
                 
     </div>
+    <div class= "container-fluid">
+            <div class="col-md-12 filter">
+                    <div class="dropdown filter-dropdown float-left">
+                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" type="button">
+                    Price
+                    <span class="caret"></span>
+                    </button>
+                    <div class="filter-dropdown-container dropdown-menu" style="left:initial;">
+                    <table class="min-max-table">
+                    <tbody><tr>
+                    <td>Min.</td>
+                    <td></td>
+                    <td>Max.</td>
+                    </tr>
+                    <tr>
+                    <td>
+                    <input type="number">
+                    </td>
+                    <td>-</td>
+                    <td>
+                    <input type="number">
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>
+                    <button class="btn loop-secondary-inverted">Clear</button>
+                    </td>
+                    <td></td>
+                    <td>
+                    <button class="btn loop-primary">Apply</button>
+                    </td>
+                    </tr>
+                    </tbody></table>
+                    </div>
+                    </div>
+                    <div class="dropdown filter-dropdown float-left">
+                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" type="button">
+                    Quantity
+                    <span class="caret"></span>
+                    </button>
+                    <div class="filter-dropdown-container dropdown-menu dropdown-menu-right" style="left:initial;">
+                    <table class="min-max-table">
+                    <tbody><tr>
+                    <td>Min.</td>
+                    <td></td>
+                    <td>Max.</td>
+                    </tr>
+                    <tr>
+                    <td>
+                    <input type="number">
+                    </td>
+                    <td>-</td>
+                    <td>
+                    <input type="number">
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>
+                    <button class="btn loop-secondary-inverted">Clear</button>
+                    </td>
+                    <td></td>
+                    <td>
+                    <button class="btn loop-primary">Apply</button>
+                    </td>
+                    </tr>
+                    </tbody></table>
+                    </div>
+                    </div>
+                    <div class="float-left" style="padding-top: 7px;padding-right: 0px;">
+                    <span class="datepickerLabel">Start Date</span>
+                    <input class="date" format="DD/MM/YYYY" type="date"  placeholder="DD/MM/YYYY" start-view="month" style="padding:8px;width: 160px;" today="true" tabindex="0">
+                    </div>
+                    <div class="float-left" style="padding-top: 7px;padding-right: 0px;">
+                    <span class="datepickerLabel">End Date</span>
+                    <input class="date" format="DD/MM/YYYY" type="date"  placeholder="DD/MM/YYYY" start-view="month" style="padding:8px;width: 160px;" today="true" tabindex="0">
+                    </div>
+                    <div class="float-left" style="margin-left: 15px;margin-top: 7px;border: 1px solid transparent;padding: 7px 12px;">
+                    <label class="customCheckBox margin-bottom-0 font-14 font-medium" style="float: left;margin-right: 5px;padding-top:2px">
+                    24Hrs Limit
+                    <input class="check" id="showLast24Hr" type="checkbox">
+                    <span class="checkmark"></span>
+                    </label>
+                    <span class="fa fa-question-circle customTip" data-toggle="tooltip" style="font-size: 16px;vertical-align: bottom;" title="" data-original-title="Enabling this would only show listings of users who have been active at least once in the last 24 hours"></span>
+                    </div>
+                    <div class="float-left" style="margin-left: 15px;margin-top: 7px;border: 1px solid transparent;padding: 7px 0px;">
+                    <label class="customCheckBox margin-bottom-0 font-14 font-medium" style="float: left;margin-right: 5px;padding-top:2px">
+                    Collateral
+                    <input class="check" id="collateralRequired" type="checkbox">
+                    <span class="checkmark"></span>
+                    </label>
+                    </div>
+                
+                    <div class="btn-group">
+                            <button type="button" class="btn btn-primary sort dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Sort by:
+                              <span id="sortselect">Price Per Unit - low to high</span>
+                            </button>
+                            <div id="menu" class="dropdown-menu">
+                              <a class="dropdown-item" href="#">Relevance</a>
+                              <a class="dropdown-item" href="#">Price Per Unit - high to lown</a>
+                              <a class="dropdown-item" href="#">Price Per Unit - low to high</a>
+                              <a class="dropdown-item" href="#">Quantity - high to low</a>
+                              <a class="dropdown-item" href="#">Quantity - low to high</a>
+                            </div>
+                          </div>
+
+            </div>
+    </div>
+        
+    </div>
     
     
 </body>
-<script>
-        function myFunction() {
-            var x = document.getElementById("res");
-            if (x.className === "resnav") {
-                x.className += " responsive";
-            } else {
-                x.className = "resnav";
-            }
-        }
-        </script>
+<script src="index.js"></script>
 </html>

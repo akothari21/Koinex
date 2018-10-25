@@ -180,7 +180,7 @@ label {
     padding: 5px;
     margin: 4px;
 }
-.filter{
+.filters{
     background: rgba(1, 3, 100, 0.075);
     padding-top: 5px;
     padding-bottom:30px;
@@ -240,6 +240,10 @@ table.min-max-table:last-child td:last-child button {
     border: 1px solid #ccc;
     border-radius: 3px;
 }
+input[type="checkbox"]:checked{
+    background-color: #0052cc !important;
+}
+
 .font-medium {
     font-family: 'Poppins-Medium';
 }
@@ -270,7 +274,7 @@ table.min-max-table:last-child td:last-child button {
     border: 1px solid #465465 !important;
     padding: 5px !important;
     margin-top:6px;
-    color: #0052cc !important;
+    color: rgb(99, 102, 105) !important;
     text-transform: uppercase !important;
 }
 .dropdown-toggle:focus {
@@ -279,4 +283,40 @@ table.min-max-table:last-child td:last-child button {
 
 .btn :focus{
     box-shadow: none !important;
+}
+.filter {
+    background-color: rgba(9,30,66,0.04);
+    border: solid 1px #697680;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 3px;
+    margin-left: 14px;
+    color: #42526e;
+    font-size: 14px;
+    cursor: pointer;
+}
+.listing-filters {
+    border: solid 1px rgba(134,142,153,0.15);
+    padding: 18px;
+
+}
+
+.padding-top-20{
+padding-top:20px;
+padding-right: 20px;
+}
+.listing-tag {
+    border-radius: 3px;
+    border: solid 1px #9797977d;
+    padding: 4px 8px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+.list {
+    border-radius: 2px;
+    background-color: #ffffff;
+    border: solid 1px rgba(134,142,153,0.15);
+    padding: 18px;
+    margin-bottom: 12px;
+    box-shadow: 2px 2px 2px 2px rgba(82, 82, 231, 0.286);
 }

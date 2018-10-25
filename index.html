@@ -55,6 +55,7 @@
         </a>       
                
     </nav>
+    
     <div class="container-fluid">
             <div class="row search-header">
                 
@@ -89,8 +90,34 @@
             
                 
     </div>
+    <div class="listing-filter">
+            <div class="container-fluid " style="margin-bottom:10px; margin-top:10px">
+                    <div class="col-md-12">
+                            <div class="search-icon">
+                            <i class="fa fa-search"></i>
+                
+                           <div id="cost" class="filter">₹1-₹5
+                            <i class="fa fa-times"></i>
+                            </div>
+                            <div id="pri" class="filter">
+                            2 BTC -  3 BTC
+                            <i class="fa fa-times" onclick="delpri()"></i>
+                            </div>
+                            <div id="lhr" class="filter " style="display: none" ng-if="vm.filters.showLast24Hr==true">
+                            User last seen in 24 Hours
+                            <i class="fa fa-times" onclick="delhr()"></i>
+                            </div>
+                            <div id="colt" class="filter " ng-if="vm.filters.isCollateral==true">
+                            Collateral Required
+                            <i class="fa fa-times" onclick="delcolt()"></i>
+                            </div><!-- end ngIf: vm.filters.isCollateral==true -->
+                    </div>
+            </div>
+    </div>
+    
+    
     <div class= "container-fluid">
-            <div class="col-md-12 filter">
+            <div class="col-md-12 filters">
                     <div class="dropdown filter-dropdown float-left">
                     <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" type="button">
                     Price
@@ -168,11 +195,16 @@
                     <div class="float-left" style="margin-left: 15px;margin-top: 7px;border: 1px solid transparent;padding: 7px 12px;">
                     <label class="customCheckBox margin-bottom-0 font-14 font-medium" style="float: left;margin-right: 5px;padding-top:2px">
                     24Hrs Limit
-                    <input class="check" id="showLast24Hr" type="checkbox">
+                    <input onclick= "hrs()" class="check" id="showLast24Hr" type="checkbox">
                     <span class="checkmark"></span>
                     </label>
-                    <span class="fa fa-question-circle customTip" data-toggle="tooltip" style="font-size: 16px;vertical-align: bottom;" title="" data-original-title="Enabling this would only show listings of users who have been active at least once in the last 24 hours"></span>
+                    <span class="fa fa-question-circle customTip" data-toggle="tooltip" data-placement="top" title="Enabling this would only show listings of users who have been active at least once in the last 24 hours">
+                        
+                    </span>
+                    
                     </div>
+                    
+                    
                     <div class="float-left" style="margin-left: 15px;margin-top: 7px;border: 1px solid transparent;padding: 7px 0px;">
                     <label class="customCheckBox margin-bottom-0 font-14 font-medium" style="float: left;margin-right: 5px;padding-top:2px">
                     Collateral
@@ -197,7 +229,131 @@
 
             </div>
     </div>
+    <div class="row padding-top-20 margin-0">
+            <div class="col-md-6 font-14 result-count">
+            <!-- ngIf: vm.listing.length -->
+            </div>
+            <div class="col-md-6 text-right">
+            <button class="btn loop-secondary-inverted btn-large">
+            + Create Listing
+            </button>
+            </div>
+            </div>
         
+    </div>
+    <div class="listing" style="margin:50px">
+            <div class="row list" style="margin-bottom:50px;">
+                    <div class="col-md-2 wordWrap" ng-click="vm.goToProfile(listing.Customer.CustomerProfile.userName)" style="cursor:pointer">
+                    <div class="title hover-blue " style="position:relative">
+                    
+                    Name1
+                    </div>
+                    <div class="small rating " ng-bind-html="stars(listing.Customer.CustomerProfile.rating)| trustAsHTML"><div class="star-ratings-css-top"><span style="display: inline-block;margin-right: 5px;">★</span><span style="vertical-align: middle;">4.46</span></div></div>
+                    <div class="small " ng-bind-html="calculateTimeAgo(listing.Customer.CustomerProfile.lastVisited)">Last active 5 hours ago</div>
+                    </div>
+                    <div class="col-md-2 listing-price ">
+                    35.00 INR
+                    <div class="br"></div>
+                    <div class="small">
+                    Price per XRP
+                    </div>
+                    </div>
+                    <div class="col-md-2 ">
+                    10,00,000 XRP
+                    <div class="br"></div>
+                    <div class="small">
+                    Minimum Quantity
+                    </div>
+                    </div>
+                    <div class="col-md-2 ">
+                    1,00,00,000 XRP
+                    <div class="br"></div>
+                    <div class="small">
+                    Maximum Quantity
+                    </div>
+                    </div>
+                    <div class="col-md-2">
+                    <div class="listing-tag ">
+                    IMPS
+                    </div>
+                    <div class="listing-tag ">
+                    NEFT
+                    </div>
+                    <div class="listing-tag ">
+                    RTGS
+                    </div>
+                    <div class="listing-tag ">
+                    UPI
+                    </div>
+                    </div>
+                    <div class="col-md-1 listing-verification text-center padding-left-0 flex">
+                    
+                    <div class="icon-wrong "></div>
+                    </div>
+                    <div class="col-md-1 padding-left-0">
+                    <button class="btn loop-primary">
+                    
+                    <span ng-if="listing.type == 'buy'"> Sell</span>
+                    </button>
+                    </div>
+                    </div>
+                    <div class=" list row">
+                            <div class="col-md-2 wordWrap" ng-click="vm.goToProfile(listing.Customer.CustomerProfile.userName)" style="cursor:pointer">
+                            <div class="title hover-blue " style="position:relative">
+                            
+                            Name1
+                            </div>
+                            <div class="small rating " ng-bind-html="stars(listing.Customer.CustomerProfile.rating)| trustAsHTML"><div class="star-ratings-css-top"><span style="display: inline-block;margin-right: 5px;">★</span><span style="vertical-align: middle;">4.46</span></div></div>
+                            <div class="small " ng-bind-html="calculateTimeAgo(listing.Customer.CustomerProfile.lastVisited)">Last active 5 hours ago</div>
+                            </div>
+                            <div class="col-md-2 listing-price ">
+                            35.00 INR
+                            <div class="br"></div>
+                            <div class="small">
+                            Price per XRP
+                            </div>
+                            </div>
+                            <div class="col-md-2 ">
+                            10,00,000 XRP
+                            <div class="br"></div>
+                            <div class="small">
+                            Minimum Quantity
+                            </div>
+                            </div>
+                            <div class="col-md-2 ">
+                            1,00,00,000 XRP
+                            <div class="br"></div>
+                            <div class="small">
+                            Maximum Quantity
+                            </div>
+                            </div>
+                            <div class="col-md-2">
+                            <div class="listing-tag ">
+                            IMPS
+                            </div>
+                            <div class="listing-tag ">
+                            NEFT
+                            </div>
+                            <div class="listing-tag ">
+                            RTGS
+                            </div>
+                            <div class="listing-tag ">
+                            UPI
+                            </div>
+                            </div>
+                            <div class="col-md-1 listing-verification text-center padding-left-0 flex">
+                            
+                            <div class="icon-wrong "></div>
+                            </div>
+                            <div class="col-md-1 padding-left-0">
+                            <button class="btn loop-primary">
+                            
+                            <span ng-if="listing.type == 'buy'"> Sell</span>
+                            </button>
+                            </div>
+                            </div>
+                    
+            
     </div>
     
     

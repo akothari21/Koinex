@@ -24,7 +24,7 @@
                         <image src='https://koinex.in/koinloop.png' style='width:30px;height:30px;'></image>
                     </div>
                     <div class='brand margin-left-5' style='height:30px;'>
-                        <a href='/loop' style='color:#195add;letter-spacing:3px;font-size:28px;'>
+                        <a href='https://koinex.in/loop' style='color:#195add;letter-spacing:3px;font-size:28px;'>
                         <svg height='27px' version='1.1' viewbox='0 0 94 27' width='94px' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
                         <title>LOOP</title>
                         <desc>Created with Sketch.</desc>
@@ -46,8 +46,8 @@
             
               <a class=" nav-item nav-link loopTextColor" href="https://koinex.in" style="padding-bottom:15px;" target="_blank">KOINEX</a>
               <a class=" nav-item nav-link loopTextColor" href="https://koinex.in/careers" style="padding-bottom:15px;" target="_blank">CAREERS</a>
-              <a class=" nav-item nav-link navHollowBtn">REGISTER</a> 
-              <a class=" nav-item nav-link navFillBtn">SIGN IN</a> 
+              <a class=" nav-item nav-link navHollowBtn" data-toggle="modal" data-target="#registermodal">REGISTER</a> 
+              <a class=" nav-item nav-link navFillBtn" data-toggle="modal" data-target="#signinmodal">SIGN IN</a> 
         
         </div> 
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -55,6 +55,31 @@
         </a>       
                
     </nav>
+    
+    <div class="modal fade modal-md" id="registermodal" aria-hidden="true" role="dialog" >
+        <div class="modal-dialog">
+                <div class="modal-content" uib-modal-transclude="" role="document">
+                        <div class="mobile-modal loop-pop-up ng-scope">
+                        <div class="col-md-12" style="border-bottom:1px solid #ececec;">
+                        <div class="brand margin-left-5" style="padding: 30px 0px 20px;">
+                        <a href="#" style="color:#195add;letter-spacing:3px;font-size:28px;font-family:'Montserrat', sans-serif !important;">
+                        <b>
+                        LOOP
+                        </b>
+                        </a>
+                        </div>
+                        
+                        </div>
+                        <div class="col-md-12 margin-top-20" style="text-align: left;font-size: 16px;padding: 15px 30px;WORD-WRAP: BREAK-WORD;">
+                        Loop is a trustful peer-to-peer token transaction network. You need a Koinex account to be able to sign in to Loop. Please create a Koinex account and complete your KYC verification to continue using Loop.
+                        <div class="form-group signup-button">
+                        <button  class="btn btn-raised col-lg-12 margin-bottom-30" data-style="zoom-in"  style="width: 100%;border-radius: 4px;background-color: #195bdd;margin-top: 40px;letter-spacing: 1px;"><a href="https://koinex.in/register" style="color:white; text-decoration:none;">PROCEED TO KOINEX</a></button>
+                        </div>
+                        </div>
+                        </div></div>
+        </div>
+        
+        </div>
     
     <div class="container-fluid">
             <div class="row search-header">
@@ -64,17 +89,17 @@
                     </div>
                 <div class="loopTabs col-sm-3">
                     <div class="indivTab">
-                    <input class="indivTab " id="toggle-tab1" name="tabs" type="radio" value="sell">
+                    <input checked="checked" class="indivTab " id="toggle-tab1" name="tabs" onclick="buy()" type="radio" value="sell">
                     <label for="toggle-tab1">Buy</label>
                     </div>
                     <div class="indivTab">
-                    <input class="indivTab " id="toggle-tab2" name="tabs"  type="radio" value="buy">
+                    <input class="indivTab " id="toggle-tab2" name="tabs" onclick="sell()" type="radio" value="buy">
                     <label for="toggle-tab2">Sell</label>
                     </div>
                 </div>
                 <div class="loopTabs col-sm-6">
                     <div class="indivTab">
-                    <input class="indivTab" id="toggle-tab3" name="targetCurrency" ng-click="vm.updateQueryParams('targetCurrency','bitcoin');vm.resetFilters()" ng-model="vm.filters.targetCurrency" type="radio" value="bitcoin">
+                    <input checked="checked" class="indivTab" id="toggle-tab3" name="targetCurrency" ng-click="vm.updateQueryParams('targetCurrency','bitcoin');vm.resetFilters()" ng-model="vm.filters.targetCurrency" type="radio" value="bitcoin">
                     <label for="toggle-tab3">Bitcoin</label>
                     </div>
                     <div class="indivTab">
@@ -103,11 +128,11 @@
                             2 BTC -  3 BTC
                             <i class="fa fa-times" onclick="delpri()"></i>
                             </div>
-                            <div id="lhr" class="filter " style="display: none" ng-if="vm.filters.showLast24Hr==true">
+                            <div id="lhr" class="filter " style="display: none">
                             User last seen in 24 Hours
                             <i class="fa fa-times" onclick="delhr()"></i>
                             </div>
-                            <div id="colt" class="filter " ng-if="vm.filters.isCollateral==true">
+                            <div id="colt" class="filter "style="display: none" >
                             Collateral Required
                             <i class="fa fa-times" onclick="delcolt()"></i>
                             </div><!-- end ngIf: vm.filters.isCollateral==true -->
@@ -208,7 +233,7 @@
                     <div class="float-left" style="margin-left: 15px;margin-top: 7px;border: 1px solid transparent;padding: 7px 0px;">
                     <label class="customCheckBox margin-bottom-0 font-14 font-medium" style="float: left;margin-right: 5px;padding-top:2px">
                     Collateral
-                    <input class="check" id="collateralRequired" type="checkbox">
+                    <input onclick="col()" class="check" id="collateralRequired" type="checkbox">
                     <span class="checkmark"></span>
                     </label>
                     </div>
@@ -231,25 +256,25 @@
     </div>
     <div class="row padding-top-20 margin-0">
             <div class="col-md-6 font-14 result-count">
-            <!-- ngIf: vm.listing.length -->
+            
             </div>
             <div class="col-md-6 text-right">
-            <button class="btn loop-secondary-inverted btn-large">
+            <button class="btn loop-secondary-inverted btn-large" data-toggle="modal" data-target="#registermodal">
             + Create Listing
             </button>
             </div>
             </div>
         
     </div>
-    <div class="listing" style="margin:50px">
+    <div id="buy"  class="listing" style="margin:50px; display:block">
             <div class="row list" style="margin-bottom:50px;">
                     <div class="col-md-2 wordWrap" ng-click="vm.goToProfile(listing.Customer.CustomerProfile.userName)" style="cursor:pointer">
                     <div class="title hover-blue " style="position:relative">
                     
-                    Name1
+                    Name3
                     </div>
-                    <div class="small rating " ng-bind-html="stars(listing.Customer.CustomerProfile.rating)| trustAsHTML"><div class="star-ratings-css-top"><span style="display: inline-block;margin-right: 5px;">★</span><span style="vertical-align: middle;">4.46</span></div></div>
-                    <div class="small " ng-bind-html="calculateTimeAgo(listing.Customer.CustomerProfile.lastVisited)">Last active 5 hours ago</div>
+                    <div class="small rating "><div class="star-ratings-css-top"><span style="display: inline-block;margin-right: 5px;">★</span><span style="vertical-align: middle;">4.46</span></div></div>
+                    <div class="small ">Last active 5 hours ago</div>
                     </div>
                     <div class="col-md-2 listing-price ">
                     35.00 INR
@@ -259,14 +284,14 @@
                     </div>
                     </div>
                     <div class="col-md-2 ">
-                    10,00,000 XRP
+                    37,00,000 XRP
                     <div class="br"></div>
                     <div class="small">
                     Minimum Quantity
                     </div>
                     </div>
                     <div class="col-md-2 ">
-                    1,00,00,000 XRP
+                    3,00,00,000 XRP
                     <div class="br"></div>
                     <div class="small">
                     Maximum Quantity
@@ -286,25 +311,31 @@
                     UPI
                     </div>
                     </div>
-                    <div class="col-md-1 listing-verification text-center padding-left-0 flex">
+                    <div class="col-md-1 listing-verification  padding-left-0 flex">
                     
-                    <div class="icon-wrong "></div>
+                    <div class="icon-wrong ">
+                        
+                    </div>
+                    <div class="br"></div>
+                    <div class="small">
+                    Collateral
+                    </div>
                     </div>
                     <div class="col-md-1 padding-left-0">
                     <button class="btn loop-primary">
                     
-                    <span ng-if="listing.type == 'buy'"> Sell</span>
+                    <span>Buy</span>
                     </button>
                     </div>
                     </div>
                     <div class=" list row">
-                            <div class="col-md-2 wordWrap" ng-click="vm.goToProfile(listing.Customer.CustomerProfile.userName)" style="cursor:pointer">
+                            <div class="col-md-2 wordWrap" style="cursor:pointer">
                             <div class="title hover-blue " style="position:relative">
                             
-                            Name1
+                            Name4
                             </div>
-                            <div class="small rating " ng-bind-html="stars(listing.Customer.CustomerProfile.rating)| trustAsHTML"><div class="star-ratings-css-top"><span style="display: inline-block;margin-right: 5px;">★</span><span style="vertical-align: middle;">4.46</span></div></div>
-                            <div class="small " ng-bind-html="calculateTimeAgo(listing.Customer.CustomerProfile.lastVisited)">Last active 5 hours ago</div>
+                            <div class="small rating " ><div class="star-ratings-css-top"><span style="display: inline-block;margin-right: 5px;">★</span><span style="vertical-align: middle;">4.46</span></div></div>
+                            <div class="small ">Last active 5 hours ago</div>
                             </div>
                             <div class="col-md-2 listing-price ">
                             35.00 INR
@@ -341,9 +372,135 @@
                             UPI
                             </div>
                             </div>
-                            <div class="col-md-1 listing-verification text-center padding-left-0 flex">
+                            <div class="col-md-1 listing-verification padding-left-0 flex">
                             
                             <div class="icon-wrong "></div>
+                            <div class="br"></div>
+                            <div class="small">
+                            Collateral
+                            </div>
+                            </div>
+                            <div class="col-md-1 padding-left-0">
+                            <button class="btn loop-primary">
+                            
+                            <span> Buy</span>
+                            </button>
+                            </div>
+                            </div>
+                    
+            
+    </div>
+    <div id="sell"  class="listing" style="margin:50px; display:none">
+            <div class="row list" style="margin-bottom:50px;">
+                    <div class="col-md-2 wordWrap"  style="cursor:pointer">
+                    <div class="title hover-blue " style="position:relative">
+                    
+                    Name1
+                    </div>
+                    <div class="small rating "><div class="star-ratings-css-top"><span style="display: inline-block;margin-right: 5px;">★</span><span style="vertical-align: middle;">4.46</span></div></div>
+                    <div class="small ">Last active 5 hours ago</div>
+                    </div>
+                    <div class="col-md-2 listing-price ">
+                    35.00 INR
+                    <div class="br"></div>
+                    <div class="small">
+                    Price per XRP
+                    </div>
+                    </div>
+                    <div class="col-md-2 ">
+                    10,00,000 XRP
+                    <div class="br"></div>
+                    <div class="small">
+                    Minimum Quantity
+                    </div>
+                    </div>
+                    <div class="col-md-2 ">
+                    1,00,00,000 XRP
+                    <div class="br"></div>
+                    <div class="small">
+                    Maximum Quantity
+                    </div>
+                    </div>
+                    <div class="col-md-2">
+                    <div class="listing-tag ">
+                    IMPS
+                    </div>
+                    <div class="listing-tag ">
+                    NEFT
+                    </div>
+                    <div class="listing-tag ">
+                    RTGS
+                    </div>
+                    <div class="listing-tag ">
+                    UPI
+                    </div>
+                    </div>
+                    <div class="col-md-1 listing-verification padding-left-0 flex">
+                    
+                    <div class="icon-wrong "></div>
+                    <div class="br"></div>
+                    <div class="small">
+                    Collateral
+                    </div>
+                    </div>
+                    <div class="col-md-1 padding-left-0">
+                    <button class="btn loop-primary">
+                    
+                    <span ng-if="listing.type == 'buy'"> Sell</span>
+                    </button>
+                    </div>
+                    </div>
+                    <div class=" list row">
+                            <div class="col-md-2 wordWrap" style="cursor:pointer">
+                            <div class="title hover-blue " style="position:relative">
+                            
+                            Name2
+                            </div>
+                            <div class="small rating " ><div class="star-ratings-css-top"><span style="display: inline-block;margin-right: 5px;">★</span><span style="vertical-align: middle;">4.46</span></div></div>
+                            <div class="small ">Last active 5 hours ago</div>
+                            </div>
+                            <div class="col-md-2 listing-price ">
+                            35.00 INR
+                            <div class="br"></div>
+                            <div class="small">
+                            Price per XRP
+                            </div>
+                            </div>
+                            <div class="col-md-2 ">
+                            10,00,000 XRP
+                            <div class="br"></div>
+                            <div class="small">
+                            Minimum Quantity
+                            </div>
+                            </div>
+                            <div class="col-md-2 ">
+                            1,00,00,000 XRP
+                            <div class="br"></div>
+                            <div class="small">
+                            Maximum Quantity
+                            </div>
+                            </div>
+                            <div class="col-md-2">
+                            <div class="listing-tag ">
+                            IMPS
+                            </div>
+                            <div class="listing-tag ">
+                            NEFT
+                            </div>
+                            <div class="listing-tag ">
+                            RTGS
+                            </div>
+                            <div class="listing-tag ">
+                            UPI
+                            </div>
+                            </div>
+                            <div class="col-md-1 listing-verification padding-left-0 flex">
+                            
+                            <div class="icon-correct"></div>
+                            <div class="br"></div>
+                            <div class="small">
+                            Collateral
+                            </div>
                             </div>
                             <div class="col-md-1 padding-left-0">
                             <button class="btn loop-primary">
@@ -355,7 +512,181 @@
                     
             
     </div>
-    
+       
+            <footer class="footer loop">
+                    <div class="social-container">
+                    <div class="row">
+                    <div class="col-lg-12 col-md-12 col-ms-12 col-xs-12">
+                    <div class="row padding-top-20 padding-bottom-15">
+                    <div class="col-lg-1 col-md-1 padding-5"></div>
+                    <div class="col-lg-2 col-md-2">
+                    <div class="footer-titles">
+                    COMPANY
+                    </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2">
+                    <div class="footer-titles">
+                    INFORMATION
+                    </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2">
+                    <div class="footer-titles">
+                    RESOURCES
+                    </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2">
+                    <div class="footer-titles">
+                    LOOP
+                    </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2">
+                    <div class="footer-titles">
+                    FOLLOW US
+                    </div>
+                    </div>
+                    <div class="col-lg-1 col-md-1"></div>
+                    </div>
+                    <div class="row">
+                    <div class="col-lg-1 padding-5"></div>
+                    <div class="col-lg-2">
+                    <div class="footer-links">
+                    <a href="/loop/loop_about" target="_blank">
+                    About
+                    </a>
+                    </div>
+                    <div class="footer-links">
+                    <a href="/careers" target="_blank">
+                    Careers
+                    </a>
+                    </div>
+                    </div>
+                    <div class="col-lg-2">
+                    <div class="footer-links">
+                    <a href="/loop/loop_policy" target="_blank">
+                    Acceptable Use Policy
+                    </a>
+                    </div>
+                    <div class="footer-links">
+                    <a href="/loop/loop_fees" target="_blank">
+                    Fees
+                    </a>
+                    </div>
+                    <div class="footer-links">
+                    <a href="/loop/conditions" target="_blank">
+                    Terms and Conditions
+                    </a>
+                    </div>
+                    <div class="footer-links">
+                    <a href="/loop/loop_privacy" target="_blank">
+                    Privacy Policy
+                    </a>
+                    </div>
+                    <div class="footer-links">
+                    <a href="/loop/loop_aml" target="_blank">
+                    AML Policy
+                    </a>
+                    </div>
+                    </div>
+                    <div class="col-lg-2">
+                    <div class="footer-links">
+                    <a href="/loop/loopHowItWork" target="_blank">
+                    How it works
+                    </a>
+                    </div>
+                    <div class="footer-links">
+                    <a href="/support" target="_blank">
+                    Support Ticket (9 AM To 5 PM)
+                    </a>
+                    </div>
+                    <div class="footer-links">
+                    <a href="https://koinex.freshdesk.com/support/solutions/33000135055" target="_blank">
+                    FAQ
+                    </a>
+                    </div>
+                    <div class="footer-links">
+                    <a href="/loop/whyCollateral" target="_blank">
+                    What is collateral?
+                    </a>
+                    </div>
+                    <div class="footer-links">
+                    <a href="/loop/Dispute_Resolution_Guidelines" target="_blank">
+                    Dispute Resolution Guildlines
+                    </a>
+                    </div>
+                    <div class="footer-links">
+                    <a href="/loop/how_user_rating_works" target="_blank">
+                    How user rating works?
+                    </a>
+                    </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2">
+                    <div class="footer-links">
+                    <a href="#" >
+                    Buy Bitcoin
+                    </a>
+                    </div>
+                    <div class="footer-links">
+                    <a href="#">
+                    Sell Bitcoin
+                    </a>
+                    </div>
+                    <div class="footer-links">
+                    <a href="#">
+                    Buy Ethereum
+                    </a>
+                    </div>
+                    <div class="footer-links">
+                    <a href="#">
+                    Sell Ethereum
+                    </a>
+                    </div>
+                    <div class="footer-links">
+                    <a href="#">
+                    Buy Ripple
+                    </a>
+                    </div>
+                    <div class="footer-links">
+                    <a href="#">
+                    Sell Ripple
+                    </a>
+                    </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2">
+                    <div class="follow-icon">
+                    <div class="footer-icon">
+                    <a href="https://twitter.com/koinexindia" target="_blank">
+                    <i class="fa fa-twitter"></i>
+                    </a>
+                    </div>
+                    <div class="footer-icon">
+                    <a href="https://facebook.com/koinex" target="_blank">
+                    <i class="fa fa-facebook"></i>
+                    </a>
+                    </div>
+                    <div class="footer-icon">
+                    <a href="https://medium.com/koinex-crunch" target="_blank">
+                    <i class="fa fa-medium"></i>
+                    </a>
+                    </div>
+                    <div class="footer-icon">
+                    <a href="https://in.linkedin.com/company/koinex" target="_blank">
+                    <i class="fa fa-linkedin"></i>
+                    </a>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="col-lg-1"></div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="footer-divider padding-top-20">
+                    <div class="divider-line"></div>
+                    </div>
+                    <div class="copyright-container text-align-center">
+                    © 2018 Koinex. All rights reserved.
+                    </div>
+                    </footer>    
     
 </body>
 <script src="index.js"></script>

@@ -15,6 +15,6 @@ app.get("/:name", function(req, res){
 
  });
 
- app.listen(2310, function(){
+ app.listen(process.env.PORT, process.env.IP, function(){
    console.log("server started");  
  } );
